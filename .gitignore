@@ -28,3 +28,5 @@ yarn.lock
 # Ignore IDE and editor settings
 .idea/
 .vscode/
+
+google_client_secret.json
