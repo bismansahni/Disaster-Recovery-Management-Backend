@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import hurricane from './routes/hurricane.js';
+import googleSheetsRoutes from './routes/googlesheets.js';
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.get('/', (req, res) => {
 
 app.use('/hurricane', hurricane);
 
+
+app.use('/sheets', googleSheetsRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
