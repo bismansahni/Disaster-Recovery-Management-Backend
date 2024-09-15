@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import hurricane from './routes/hurricane.js';
 import googleSheetsRoutes from './routes/googlesheets.js';
+import Authroute from './routes/authorization.js';
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use('/hurricane', hurricane);
 
 
 app.use('/sheets', googleSheetsRoutes);
+app.use('/auth',Authroute)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
