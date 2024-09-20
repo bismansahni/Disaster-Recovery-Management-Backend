@@ -52,12 +52,12 @@ const SHEET_ID = process.env.SHEET_ID;
 console.log(SHEET_ID);
 
 export const signup = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password,zipcode } = req.body;
 
-  if (!email || !password) {
-    return res.status(400).send('Email and password are required');
+  if (!email || !password || !zipcode)  {
+    return res.status(400).send('Email , password ,zipcode are required');
   }
-
+  console.log(zipcode);
   console.log(`Signing up user with email: ${email}`);
 
   try {
@@ -67,7 +67,7 @@ export const signup = async (req, res) => {
       range: 'Sheet1!A1', // Adjust the range to match where you want to append data
       valueInputOption: 'RAW', // RAW ensures data is appended without formatting
       resource: {
-        values: [[email, password]], // Appending email and password as a new row
+        values: [[email, password,zipcode]], // Appending email and password as a new row
       },
     });
 
